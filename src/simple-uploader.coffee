@@ -106,6 +106,7 @@ class SimpleUploader extends SimpleModule
         'X-File-Name': encodeURIComponent(file.name)
       xhr: ->
         req = $.ajaxSettings.xhr()
+        req.withCredentials = true
         if req
           req.upload.onprogress = (e) =>
             @progress(e)
